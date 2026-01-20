@@ -16,7 +16,7 @@ function Symbols1=Channel(Symbols0,L,SNR,M,beta)
         end
         pre_block=zeros(P,1);
         if b>1
-            for l=2:l
+            for l=2:L
                 Tau=l-1;
                 tail=Symbols0(end-Tau+1:end,b-1);
                 pre_block(1:Tau)=pre_block(1:Tau)+pre_alpha(l)*tail;
