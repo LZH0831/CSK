@@ -1,10 +1,4 @@
 function recovered_bits = receiver(rx_signals, num_blocks, M_p)
-% 输入:
-%   rx_signals - 接收到的信号矩阵
-%   num_blocks - 总块数
-%   M_p        - 每块承载的比特数
-% 输出:
-%   recovered_bits - 恢复出的二进制比特流
 
     recovered_bits = [];
     
@@ -20,7 +14,7 @@ function recovered_bits = receiver(rx_signals, num_blocks, M_p)
         [~, peak_position] = max(abs(correlation));
         estimated_shift = peak_position - 1;
        
-        current_bits = de2bi(estimated_shift, M_p);
+        current_bits = de2bi(estimated_shift, M_p,'left-msb');
         recovered_bits = [recovered_bits, current_bits];
     end
 end
