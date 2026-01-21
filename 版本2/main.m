@@ -5,7 +5,7 @@ M = floor(log2(beta));
 Block_Num = 20;      
 L = 2;                  
 C = 2;               
-Frame_Num = 500;
+Frame_Num = 5000;
 total=zeros(1,25);
 
 
@@ -19,7 +19,7 @@ for dB=0:1:24
             cur_alpha=sqrt(1/(2*L))*(randn(1,L)+1i*randn(1,L));
         end
     [Bits,Symbols0]=Transmitter(M,beta,Block_Num,C);
-    Symbols1=Channel(Symbols0,L,SNR,M,beta);
+    Symbols1=Channel(Symbols0,L,SNR,M,beta,cur_alpha);
     Bitsre=Receiver(M,Block_Num,C,Symbols1);
     ratio(1,dB+1)=sum(Bits~=Bitsre)/((Block_Num-1)*M);
     total(1,dB+1)=total(1,dB+1)+ratio(1,dB+1);
