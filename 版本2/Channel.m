@@ -6,7 +6,7 @@ function Symbols1=Channel(Symbols0,L,SNR,M,beta)
         if L==1
             cur_alpha=1;
         else
-             cur_alpha=(sqrt(1/(2*L)))*(randn(1,L)+1i*randn(1,L));
+            cur_alpha=(sqrt(1/(2*L)))*(randn(1,L)+1i*randn(1,L));
         end
         cur_block=zeros(P,1);
         for l=1:L
