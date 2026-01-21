@@ -1,13 +1,7 @@
-function Symbols1=Channel(Symbols0,L,SNR,M,beta)
+function Symbols1=Channel(Symbols0,L,SNR,M,beta,cur_alpha)
     [P,Block_Num]=size(Symbols0);
     Symbols1=zeros(P,Block_Num);
-    pre_alpha=zeros(1,L);
     for b=1:Block_Num
-        if L==1
-            cur_alpha=1;
-        else
-            cur_alpha=(sqrt(1/(2*L)))*(randn(1,L)+1i*randn(1,L));
-        end
         cur_block=zeros(P,1);
         for l=1:L
             Tau=l-1;
@@ -19,7 +13,7 @@ function Symbols1=Channel(Symbols0,L,SNR,M,beta)
             for l=2:L
                 Tau=l-1;
                 tail=Symbols0(end-Tau+1:end,b-1);
-                pre_block(1:Tau)=pre_block(1:Tau)+pre_alpha(l)*tail;
+                pre_block(1:Tau)=pre_block(1:Tau)+cur_alpha(l)*tail;
             end
         end
         Symbols1(:,b)=cur_block+pre_block;
