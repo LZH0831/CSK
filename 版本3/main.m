@@ -4,7 +4,7 @@ beta_arr = [128,256,512];
 Block_Num = 20;      
 L_arr = [1,2];                  
 C = 2;               
-Frame_Num = 5000;
+Frame_Num = 50000;
 total=zeros(2,3,25);
 
 for l=1:length(L_arr)
@@ -26,6 +26,10 @@ for l=1:length(L_arr)
             Bitsre=Receiver(M,Block_Num,C,Symbols1);
             ratio(l,b,dB+1)=sum(Bits~=Bitsre)/((Block_Num-1)*M);
             total(l,b,dB+1)=total(l,b,dB+1)+ratio(l,b,dB+1);
+            end
+            if total(l,b,dB+1)==0
+                fprintf('   >>> 误码率极低，跳过后续 SNR 点\n');
+                break;
             end
         end
     end
