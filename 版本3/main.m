@@ -4,7 +4,7 @@ beta_arr = [128,256,512];
 Block_Num = 20;      
 L_arr = [1,2];                  
 C = 2;               
-Frame_Num = 50000;
+Frame_Num = 100000;
 total=zeros(2,3,25);
 
 for l=1:length(L_arr)
