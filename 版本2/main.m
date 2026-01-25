@@ -1,11 +1,11 @@
 clear; clc; close all;
 
-beta = 512;             
+beta = 128;             
 M = floor(log2(beta));  
 Block_Num = 20;      
 L = 2;                  
 C = 2;               
-Frame_Num = 5000;
+Frame_Num = 200000;
 total=zeros(1,25);
 
 
