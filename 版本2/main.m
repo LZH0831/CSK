@@ -5,7 +5,7 @@ M = floor(log2(beta));
 Block_Num = 20;      
 L = 2;                  
 C = 2;               
-Frame_Num = 10000;
+Frame_Num = 5000;
 total=zeros(1,25);
 
 
