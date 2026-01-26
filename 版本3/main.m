@@ -40,12 +40,17 @@ box on; hold on;
 markers={'bo-','rs-','k^-'};
 for i=1:2
     for j=1:3
-        plot(0:1:24,squeeze(total(i,j,:)),markers{j});
+        plot(0:1:24,squeeze(total(i,j,:)),markers{j},...
+             'LineWidth', 1.5, 'MarkerSize', 7);
     end
 end
 set(gca, 'Yscale', 'log');
-ylim([1e-6 1]);          
-xlabel('Eb/N0 (dB)');
-ylabel('BER');
-legend('CSK');
+ylim([1e-5 1]);  
+xlim([0 24]);        
+xlabel('Eb/N0 (dB)', 'FontSize', 12);
+ylabel('BER', 'FontSize', 12);
+legend('\beta=128, Simulation', ...
+       '\beta=256, Simulation', ...
+       '\beta=512, Simulation', ...
+       'Location', 'SouthWest', 'FontSize', 10);
 grid on;
