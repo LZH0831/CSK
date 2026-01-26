@@ -28,7 +28,7 @@ for l=1:length(L_arr)
             total(l,b,dB+1)=total(l,b,dB+1)+ratio(l,b,dB+1);
             end
             if total(l,b,dB+1)==0
-                fprintf('   >>> 误码率极低，跳过后续 SNR 点\n');
+                fprintf('   >>> 误码率为0, 跳过后续 SNR 点\n');
                 break;
             end
         end
